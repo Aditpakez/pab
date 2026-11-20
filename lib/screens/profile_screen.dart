@@ -11,7 +11,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // TODO 1 : Deklarasi Varibel yang dibutuhkan
   bool isSignedIn = false;
   String fullName = 'Nur Rachmat';
-  String userName = 'nurrachmat'; 
+  String userName = 'nurrachmat';
   int favoriteCandiCount = 0;
 
   //TODO 5: implementasi fungsi signIn
@@ -107,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                
+
                 SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),
                 SizedBox(height: 4),
@@ -137,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                
+
                 SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),
                 SizedBox(height: 4),
@@ -167,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                 
+
                 //TODO 4 : Buat bagian ProfileAction yang berisi tombol Sign In dan Sign Outs
                 SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),

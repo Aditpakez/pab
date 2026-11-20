@@ -5,7 +5,7 @@ import 'package:wisata_candi/models/candi.dart';
 class DetailScreen extends StatelessWidget {
   final Candi candi;
 
-  const new({super.key, required this.candi});
+  const DetailScreen({super.key, required this.candi});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,8 @@ class DetailScreen extends StatelessWidget {
               children: [
                 //image utama
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 8.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
@@ -31,16 +32,19 @@ class DetailScreen extends StatelessWidget {
                 ),
                 //tombol back
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                   child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple.withAlpha(255),
+                    decoration: const BoxDecoration(
+                      color: Colors.deepPurple,
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      icon: Icon(Icons.arrow_back),
+                      icon: const Icon(Icons.arrow_back),
                       color: Colors.white,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
                 ),
@@ -49,38 +53,42 @@ class DetailScreen extends StatelessWidget {
 
             //Detail Info
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   //info atas :nama candi dan tombol favorite
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         candi.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       IconButton(
-                        //icon: Icon(Icons.favorite_sharp, color: Colors.red),
-                        icon: Icon(Icons.favorite_border),
+                        icon: Icon(
+                          candi.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: candi.isFavorite ? Colors.red : null,
+                        ),
                         onPressed: () {
                           // Handle favorite button press
                         },
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   //info tengah : lokasi candi, kapan dibangun, dan tipe
                   Row(
                     children: [
-                      Icon(Icons.place, color: Colors.red),
-                      SizedBox(width: 8.0),
-                      SizedBox(
+                      const Icon(Icons.place, color: Colors.red),
+                      const SizedBox(width: 8.0),
+                      const SizedBox(
                         width: 70,
                         child: Text(
                           'Lokasi',
@@ -92,9 +100,9 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.calendar_month, color: Colors.blue),
-                      SizedBox(width: 8.0),
-                      SizedBox(
+                      const Icon(Icons.calendar_month, color: Colors.blue),
+                      const SizedBox(width: 8.0),
+                      const SizedBox(
                         width: 70,
                         child: Text(
                           'Dibangun',
@@ -106,9 +114,9 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.house, color: Colors.green),
-                      SizedBox(width: 8.0),
-                      SizedBox(
+                      const Icon(Icons.house, color: Colors.green),
+                      const SizedBox(width: 8.0),
+                      const SizedBox(
                         width: 70,
                         child: Text(
                           'Tipe',
@@ -118,15 +126,15 @@ class DetailScreen extends StatelessWidget {
                       Text(candi.type),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Divider(color: Colors.deepPurple.shade100),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   //info bawah : deskripsi candi
-                  Text(
+                  const Text(
                     'Deskripsi',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Text(candi.description, textAlign: TextAlign.justify),
                 ],
               ),
@@ -134,16 +142,16 @@ class DetailScreen extends StatelessWidget {
 
             //Detail Gallery
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Divider(color: Colors.deepPurple.shade100),
-                  Text(
+                  const Text(
                     'Gallery',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   SizedBox(
                     height: 100,
                     child: ListView.builder(
@@ -151,7 +159,7 @@ class DetailScreen extends StatelessWidget {
                       itemCount: candi.imageUrls.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: EdgeInsets.only(right: 8.0),
+                          padding: const EdgeInsets.only(right: 8.0),
                           child: GestureDetector(
                             onTap: () {},
                             child: Container(
@@ -174,7 +182,8 @@ class DetailScreen extends StatelessWidget {
                                     height: 150,
                                     color: Colors.deepPurple[50],
                                   ),
-                                  errorWidget: (context, url, error) => Icon(
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(
                                     Icons.error,
                                     color: Colors.red,
                                     size: 40,
@@ -187,8 +196,8 @@ class DetailScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 4),
-                  Text(
+                  const SizedBox(height: 4),
+                  const Text(
                     'Klik gambar untuk memperbesar',
                     style: TextStyle(fontSize: 12, color: Colors.black54),
                   ),
